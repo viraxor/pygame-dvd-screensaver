@@ -64,11 +64,11 @@ while running:
             dvd_bg_color = random.choice(dvd_colors)
         last_bg_color = dvd_bg_color
     
-    if dvd_angle[0] == True:
+    if dvd_angle[0]:
         rect.y -= 1
     else:
         rect.y += 1
-    if dvd_angle[1] == True:
+    if dvd_angle[1]:
         rect.x += 1
     else:
         rect.x -= 1
