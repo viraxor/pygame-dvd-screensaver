@@ -10,21 +10,20 @@ pygame.display.set_caption("DVD screensaver")
 running = True
 
 # colors
-black = pygame.Color((0, 0, 0))
-red = pygame.Color((255, 0, 0))
-blue = pygame.Color((0, 0, 255))
-green = pygame.Color((0, 255, 0))
-pink = pygame.Color((255, 0, 255))
-cyan = pygame.Color((0, 255, 255))
-yellow = pygame.Color((255, 255, 0))
-white = pygame.Color((255, 255, 255))
-
-dvd_colors = [red, blue, green, pink, cyan, yellow, white]
+dvd_colors = [pygame.Color("red"), 
+              pygame.Color("blue"),
+              pygame.Color("green"),
+              pygame.Color("magenta"), 
+              pygame.Color("cyan"),
+              pygame.Color("yellow"), 
+              pygame.Color("white"),
+              pygame.Color("purple"),
+              pygame.Color("orange")]
 
 # DVD logo
 dvd_logo_sprite = pygame.image.load("./dvd_logo.png")
 rect = dvd_logo_sprite.get_rect()
-rect.center = (300, 300)
+rect.center = (400, 300)
 
 dvd_bg_color = random.choice(dvd_colors)
 last_bg_color = dvd_bg_color
@@ -38,7 +37,7 @@ dvd_angle = [False, True]
 while running:
     pygame.display.flip()
     
-    window.fill(black)
+    window.fill((0, 0, 0))
     
     if rect.bottomleft[1] == 600:
         dvd_angle[0] = True # up
@@ -52,7 +51,7 @@ while running:
         while dvd_bg_color == last_bg_color:
             dvd_bg_color = random.choice(dvd_colors)
         last_bg_color = dvd_bg_color
-    elif rect.left == 0:
+    if rect.left == 0:
         dvd_angle[1] = True # right
         
         while dvd_bg_color == last_bg_color:
@@ -82,4 +81,4 @@ while running:
             pygame.quit()
             pygame() # crashes the program, so everything is terminated
 
-    clock.tick(60)
+    clock.tick(120)
