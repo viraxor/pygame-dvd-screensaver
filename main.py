@@ -79,6 +79,5 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-            pygame() # crashes the program, so everything is terminated
 
     clock.tick(120)
